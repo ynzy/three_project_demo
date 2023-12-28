@@ -1,14 +1,44 @@
 # vue_base_template
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 项目目录介绍
 
-## Recommended IDE Setup
+### p_webgl_city
+* 通过webgl_shader完成效果的城市展示
+### p_three_granary
+* 使用gltf渲染粮仓基地模型，three完成粮仓基地功能
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
 
-## Type Support For `.vue` Imports in TS
-
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+```js
+├── docs -- 相关说明文档
+├── public -- 静态资源
+├ ├── upload -- 静态资源目录（后续nginx做映射会直接映射这一个目录）
+├ ├──├── campus -- 园区资源
+├ └──└── vendor -- 第三方资源包目录
+├── src -- 源码目录
+├ ├── assets -- 静态资源目录
+├ ├── ├── css
+├ ├── ├── ├── index.scss -- 全局通用样式
+├ ├── ├── ├── mixin.scss -- 全局mixin
+├ ├── └── └── variables.scss -- 全局变量
+├ ├── p_webgl_city -- 通过webgl_shader完成效果的城市展示
+├ ├── ├── other -- 其他组件
+├ ├── └── index -- 入口
+├ ├── route -- VUE路由
+├ ├── └── index -- 路由入口
+├ ├── └── router.config -- 配置默认访问的路由地址（园区还是地图）
+├ ├── stores -- Pinia
+├ ├── util -- 工具包
+├ ├── views -- 页面
+├ ├──├── Home -- 首页
+├ └──└── views -- 页面
+├ └── main.js -- 入口js
+├── .eslintrc.js -- ESLint配置
+├── .gitignore -- git忽略
+├── babel.config.js -- barbel配置入口
+├── jsconfig.json -- vscode路径引入配置
+├── package.json -- 依赖管理
+└── vue.config.js -- vue cli3的webpack配置
+```
 
 ## 项目启动
 

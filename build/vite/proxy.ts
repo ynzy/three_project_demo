@@ -5,10 +5,21 @@ import type ViteEnv from '../../types/global';
  * @param viteEnv
  * @param target
  */
-export function createProxy(viteEnv: ViteEnv, target: string) {
+export function createProxy(viteEnv: ViteEnv, target: string, viteConfig: any) {
   // const target = `${IP}:${viteEnv.VITE_PORT}`;
   console.log('\x1B[33m%s\x1b[0m', '正在请求的服务端接口:', target);
+
   return {
+    proxy: {
+      // '/webglCity': {
+      //   target: 'http://localhost:5173',
+      //   rewrite: () => '/src/project/webglCity/index.html'
+      // },
+      // '/b': {
+      //   target: 'http://localhost:3001',
+      //   rewrite: () => '/src/pageB/index.html'
+      // }
+    }
     //代理'/rsm'
     // '/api': {
     //     target,

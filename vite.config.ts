@@ -7,11 +7,14 @@ import { createProxy } from './build/vite/proxy';
 import { wrapperEnv } from './build/utils';
 import { createVitePlugins } from './build/vite/plugin';
 import { createBuild } from './build/vite/build';
+import { resolve } from 'node:path';
 
 const target = 'http://XXX';
 
 // https://vitejs.dev/config/
-export default defineConfig(({ command, mode }: ConfigEnv) => {
+const viteConfig = defineConfig(({ command, mode }: ConfigEnv) => {
+  console.log('command', command);
+  console.log('mode', mode);
   const root = process.cwd(); // 当前工作目录
   const isBuild = command === 'build'; // 是否是构建 serve
   const env = loadEnv(mode, root); // 加载env环境
@@ -20,15 +23,18 @@ export default defineConfig(({ command, mode }: ConfigEnv) => {
   console.log('viteEnv', viteEnv);
   console.log('\x1B[33m%s\x1b[0m', '正在运行的环境:', viteEnv.VITE_ENV);
   return {
+    // root: resolve(__dirname, 'src'),
+    // root: fileURLToPath(new URL('./src', import.meta.url)),
     base: isBuild ? './' : '/',
     server: {
-      host: true
-      // proxy: createProxy(viteEnv, target)
+      host: true,
+      proxy: createProxy(viteEnv, target, viteConfig)
     },
     plugins: [...createVitePlugins(viteEnv, isBuild)],
     resolve: {
       alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url))
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+        '@webglCity': fileURLToPath(new URL('./src/project/webglCity', import.meta.url))
       }
     },
     css: {
@@ -45,3 +51,5 @@ export default defineConfig(({ command, mode }: ConfigEnv) => {
     build: createBuild(viteEnv)
   };
 });
+
+export default viteConfig;
