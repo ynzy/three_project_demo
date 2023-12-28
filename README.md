@@ -2,10 +2,13 @@
 
 ## 项目目录介绍
 
-### p_webgl_city
+### webglCcity
 * 通过webgl_shader完成效果的城市展示
-### p_three_granary
+### granaryBase
 * 使用gltf渲染粮仓基地模型，three完成粮仓基地功能
+
+
+
 
 
 ```js
@@ -38,6 +41,23 @@
 ├── jsconfig.json -- vscode路径引入配置
 ├── package.json -- 依赖管理
 └── vue.config.js -- vue cli3的webpack配置
+```
+
+## 创建子项目 2.如何使用
+
+> 创建子项目
+
+```js
+pnpm run new:page
+//请输入要生成的'页面名称:页面描述'、会生成在 /src/Project 目录下
+pageSix:这是第六个页面
+
+//完成后 会在 scripts/multiPages.json 中生成对应的数据 后期删除需要删除对应的数据来保持一致 内容数据如下：
+[
+  { "chunk": "pageone", "chunkName": "第一个页面"},
+  { "chunk": "pagetwo", "chunkName": "第二个页面" },
+  { "chunk": "pagethree", "chunkName": "第三个页面" }
+]
 ```
 
 ## 项目启动

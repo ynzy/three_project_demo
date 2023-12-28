@@ -11,7 +11,8 @@ export function createBuild(viteEnv: ViteEnv): BuildOptions {
   return {
     input: {
       main: resolve(__dirname, 'index.html'),
-      webglCity: resolve(__dirname, 'src/project/webglCity/index.html')
+      webglCity: resolve(__dirname, 'src/project/webglCity/index.html'),
+      granaryBase: resolve(__dirname, 'src/project/granaryBase/index.html')
     },
     sourcemap: true, // 构建后是否生成 source map 文件
     outDir: VITE_OUTPUT_DIR,

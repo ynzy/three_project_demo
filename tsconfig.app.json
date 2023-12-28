@@ -18,6 +18,9 @@
       "@webglCity/*": [
         "./src/project/webglCity/*"
       ],
+      "@granaryBase/*": [
+        "./src/project/granaryBase/*"
+      ],
     }
   }
 }
