@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { scene } from '../scene';
 import { renderer } from '../RendererCamera';
 import { create2DMarker } from '../marker/css2D';
-import { model } from '../scene/model';
+import { granaryArr, model } from '../scene/model';
 import { create3DMarker, createSpriteMarker } from '../marker/css3D';
 import { createFlame } from '../flame/flame';
 import { getBoundingBox } from '@/utils/tool';
@@ -234,18 +234,9 @@ export const panelList = [
     name: '告警火焰',
     params: {
       onClick: function () {
-        // 用于存储符合条件的 Mesh 对象的数组
-        const meshArray: any = [];
-        const granaryGroup = scene.getObjectByName('粮仓');
-        // 遍历场景，并将符合条件的 Mesh 存储到数组中
-        granaryGroup.traverse(function (obj) {
-          if (obj.type === 'Mesh') {
-            meshArray.push(obj);
-          }
-        });
         // 随机取出一个物体
-        const randomIndex = Math.floor(Math.random() * meshArray.length);
-        const randomMesh = meshArray[randomIndex];
+        const randomIndex = Math.floor(Math.random() * granaryArr.length);
+        const randomMesh = granaryArr[randomIndex];
         const flame = granaryFlame(randomMesh); //平房仓 P_05
         model.add(flame); //火焰模型添加到model中
         // 通过定时器测试 火焰熄灭
