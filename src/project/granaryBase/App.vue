@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { initThreeJs } from './three/index';
-
+import * as tool from '@/utils/tool';
 const threeDom = ref(null);
 onMounted(() => {
+  window.tool = tool;
   initThreeJs(threeDom.value);
 });
 </script>
