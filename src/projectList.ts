@@ -6,5 +6,9 @@ export const projectList = [
   {
     title: '粮仓基地',
     viewUrl: '/granaryBase/'
+  },
+  {
+    title: '城市建筑层级',
+    viewUrl: '/cityLevelVis/'
   }
 ];

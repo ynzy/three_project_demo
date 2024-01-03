@@ -34,6 +34,7 @@ const viteConfig = defineConfig(({ command, mode }: ConfigEnv) => {
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
+        '@project': fileURLToPath(new URL('./src/project', import.meta.url)),
         '@webglCity': fileURLToPath(new URL('./src/project/webglCity', import.meta.url))
       }
     },

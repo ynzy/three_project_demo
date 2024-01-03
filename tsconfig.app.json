@@ -21,6 +21,9 @@
       "@granaryBase/*": [
         "./src/project/granaryBase/*"
       ],
+      "@project/*": [
+        "./src/project/*"
+      ],
     }
   }
 }
