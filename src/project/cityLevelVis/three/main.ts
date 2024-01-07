@@ -1,15 +1,4 @@
-import {
-  THREE,
-  ThreeMeshUI,
-  QK,
-  CSS2DObject,
-  ParkApp as App,
-  GltfLevelConstructureLoader,
-  Dock,
-  DockPanel,
-  DigitalGround,
-  TexturedFence
-} from '@project/cityLevelVis/assets/lib/three.module.min.js';
+import { THREE, ThreeMeshUI, QK, CSS2DObject, ParkApp as App, GltfLevelConstructureLoader, Dock, DockPanel, DigitalGround, TexturedFence } from '@project/cityLevelVis/source';
 
 window.THREE = THREE;
 
