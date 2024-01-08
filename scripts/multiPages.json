@@ -1,14 +1,1 @@
-[
-  {
-    "chunk": "webglCity",
-    "chunkName": "通过webgl_shader完成效果的城市展示"
-  },
-  {
-    "chunk": "granaryBase",
-    "chunkName": "使用gltf渲染粮仓基地模型，three完成粮仓基地功能"
-  },
-  {
-    "chunk": "cityLevelVis",
-    "chunkName": "城市建筑层级可视化"
-  }
-]
+[{"chunk":"webglCity","chunkName":"通过webgl_shader完成效果的城市展示"},{"chunk":"granaryBase","chunkName":"使用gltf渲染粮仓基地模型，three完成粮仓基地功能"},{"chunk":"cityLevelVis","chunkName":"城市建筑层级可视化"},{"chunk":"wisdomCityShanghai","chunkName":"上海智慧城市"}]
