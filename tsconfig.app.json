@@ -24,6 +24,7 @@
       "@project/*": [
         "./src/project/*"
       ],
-    }
+    },
+    "types": ["element-plus/global"]
   }
 }

@@ -7,24 +7,36 @@
   <div class="entrance-main">
     <h2>{{ title }}</h2>
     <h3>请选择访问的内容</h3>
-    <div v-for="(screen, idx) in screens" :key="idx" @click.stop="jumpUrl(screen.viewUrl)">
-      <h4>{{ screen.title }}</h4>
-      <p><a @click.stop="jumpUrl(screen.viewUrl)">查看页面</a></p>
-      <!-- <p><a @click.stop="jumpUrl(screen.devViewUrl)">查看可缩放页面</a></p> -->
+    <!-- @click.stop="jumpUrl(screen.viewUrl)" -->
+    <div v-for="(screen, idx) in screens" :key="idx"  @click.stop="jumpUrl(screen.viewUrl)">
+      <el-popover placement="top-start" :width="400" trigger="hover">
+        <template #reference>
+          <div>
+            <h4>{{ screen.title }}</h4>
+            <!-- <p><a @click="handeDesc(screen.md)">查看简介</a></p> -->
+            <p><a @click.stop="jumpUrl(screen.viewUrl)">查看页面</a></p>
+            <!-- <p><a @click.stop="jumpUrl(screen.devViewUrl)">查看可缩放页面</a></p> -->
+          </div>
+        </template>
+        <div>
+          <mdViewer :value="screen.md"/>
+        </div>
+      </el-popover>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { projectList } from '@/projectList';
+import mdViewer from '@/components/markdown/mdViewer.vue'
 
 const router = useRouter();
 const title = ref('项目名称');
 const screens = ref(projectList);
 
+
 const jumpUrl = (url) => {
   const path = import.meta.env.DEV ? `/src/project${url}` : url;
-
   // router.push(path);
   location.href = path;
 };
@@ -36,9 +48,11 @@ const jumpUrl = (url) => {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -75,7 +89,7 @@ const jumpUrl = (url) => {
     font-size: 3vh;
   }
 
-  & > div {
+  &>div {
     border-radius: 1rem;
     border: 0.2rem solid #ccc;
     padding: 1rem;
